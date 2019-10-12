@@ -1,0 +1,53 @@
+.book-box{
+    padding:0 15px;
+    .my-title{
+        text-align: center;
+        font-size:35px;
+        padding:15px 0;
+    }
+    .signIn-box{
+        margin-top:20px;
+        .read-time{
+            font-size:30px;
+            margin-top:5px;
+            padding-left:15px;
+        }
+    }
+    .book-list{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .book-item{
+        padding: 15px;
+        width:33.33%;
+        text-align: center;
+        flex-shrink: 0;
+        box-sizing: border-box;
+        .book-img{
+            display: block;
+             height:300px;
+            width:100%;
+        }
+        .book-text{
+            display: block;
+            font-size:30px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            margin-top:10px;
+        }
+    }
+    .add-book{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .book-add-icon{
+            font-size:60px;
+        }
+        .book-add-inner{
+            width:100%;
+            padding:100px 0;
+            background: #FBFBFB;
+        }
+    }
+}

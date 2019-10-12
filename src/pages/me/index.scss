@@ -1,0 +1,76 @@
+page {
+    height:100%;
+    background: #EEEFF1;
+}
+.taro_page{
+    height:100%;
+    background: #EEEFF1;
+}
+
+.user-center {
+    .user-info-avatar{
+        margin-top:20px;
+    }
+    .user-name{
+        font-size:40px;
+        display: inline-block;
+        margin-left:20px;
+        margin-right:5px;
+    }
+    .user-info-avatar{
+        width:160px;
+        height:160px;
+        .taro-img{
+            width:160px;
+            height:160px;
+        }
+    }
+    &-top {
+        .user-settings {
+            padding: 16px 24px;
+            background: #FFFFFF;
+            .user-icon-right {
+                float: right;
+                margin-right:20px
+            }
+            .settings {
+                margin-right: 40px;
+            }
+            .clearfix:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+        }
+    }
+    .user-info {
+        display: flex;
+        height: 180px;
+        padding-left: 40px;
+        background: #FFFFFF;
+        padding-bottom:40px;
+        &-avatar {
+            overflow:hidden;  
+            display: block;  
+            width: 160px;  
+            height: 160px;    
+            border-radius: 50%;  
+            border: 2px solid #fff;  
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        &-detail {
+            display:flex;
+            align-items:center;
+            margin-left:10px
+        }
+    }
+    .gap {
+        margin-bottom: 30px;
+    }
+    // .bottom-tab {
+    //     margin-bottom: 150px;
+    // }
+    .at-list__item .item-extra__info {
+        max-width: 200px;
+    }
+}

@@ -1,0 +1,46 @@
+.swipter-box{
+    width:100%;
+    height:300px;
+    .swiper-item{
+        width:100%;
+        .taro-img{
+            display: block;
+            width:100%;
+            height:100%;
+        }
+        img{
+            display: block;
+            width:100%;
+            height:100%;
+        }
+    }
+}
+
+.hot-recomment{
+    margin:20px 0;
+    padding-left:20px;
+    font-size:35px;
+}
+
+.recomment-content{
+    .recomment-item{
+        width:33.3%;
+        padding:10px 15px;
+        text-align: center;
+        box-sizing: border-box;
+        float:left;
+        .recomment-img{
+            display: block;
+            height:300px;
+            width:100%;
+        }
+        .recomment-text{
+            display: block;
+            margin:5px 0;
+            font-size:30px;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+    }
+}
