@@ -66,16 +66,6 @@ const config = {
     staticDirectory: "static",
     //下面这个要加，不加ui不编译
     esnextModules: ["taro-ui"],
-    // devServer: {
-    //   host: "localhost",
-    //   port: 10086,
-    //   proxy: {
-    //     "/book-info": {
-    //       target: "https://novel.juhe.im", // 服务端地址
-    //       changeOrigin: true
-    //     }
-    //   }
-    // },
     module: {
       postcss: {
         autoprefixer: {

@@ -1,6 +1,7 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Image, ScrollView } from "@tarojs/components";
 import { getClassifyList } from "../../apis";
+import helper from "../../utils/helper";
 import { AtTag, AtDivider } from "taro-ui";
 import Skeleton from "taro-skeleton";
 import "./index.scss";
@@ -18,7 +19,17 @@ export default class Classify extends Component {
       loading: true,
       scrollTop: 0,
       currentTab: 0, //用作跳转后右侧视图回到顶部
-      screenArray: [], //左侧导航栏内容
+      resultData: null,
+      screenArray: [
+        {
+          label: "男生",
+          value: "male"
+        },
+        {
+          label: "女生",
+          value: "female"
+        }
+      ], //左侧导航栏内容
       childrenArray: []
     };
   }
@@ -29,21 +40,29 @@ export default class Classify extends Component {
 
   // 获取分类
   async getClassify() {
-    const { male, female, picture, press, ok } = await getClassifyList();
-    const major = [...male, ...female, ...picture, ...press];
-    const chiArr = male[0] && male[0].mins ? male[0].mins : [];
+    const { male, female } = await getClassifyList();
+    const chiArr = male.length ? male : [];
+    const newResult = { male: male, female: female };
     this.setState({
-      screenArray: major,
       childrenArray: chiArr,
-      loading: false
+      loading: false,
+      resultData: newResult
     });
   }
 
   navHandle = (item, key) => e => {
+    const { resultData } = this.state;
     this.setState({
       currentTab: key,
       scrollTop: 0,
-      childrenArray: item.mins
+      childrenArray: resultData[item.value]
+    });
+  };
+  //跳转
+  goClassList = item => e => {
+    const male = this.state.currentTab === 0 ? "male" : "female";
+    Taro.navigateTo({
+      url: `/pages/classifyBookList/index?gender=${male}&type=hot&major=${item.name}&start=0&limit=50`
     });
   };
 
@@ -67,7 +86,7 @@ export default class Classify extends Component {
                     onClick={this.navHandle(item, key)}
                     className={`nav-text${currentTab === key ? " active" : ""}`}
                   >
-                    {item.major}
+                    {item.label}
                   </View>
                 );
               })}
@@ -79,16 +98,20 @@ export default class Classify extends Component {
           scrollTop={scrollTop}
         >
           <Skeleton title row={3} loading={loading}>
-            <View className="title">小说分类：</View>
             <View className="good-list">
               {childrenArray.length ? (
                 childrenArray.map((item, key) => {
                   return (
-                    <View className="good-item">
+                    <View
+                      className="good-item"
+                      onClick={this.goClassList(item)}
+                    >
+                      <Image
+                        className="good-img"
+                        src={`${helper.staticPath}${item.bookCover[1]}`}
+                      />
                       <View className="good-right-cont">
-                        <View className="good-title">
-                          <AtTag circle>{item}</AtTag>
-                        </View>
+                        <View className="good-title">{item.name}</View>
                       </View>
                     </View>
                   );

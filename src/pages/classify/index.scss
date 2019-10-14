@@ -34,18 +34,22 @@
     .good-list {
       margin-top: 15px;
       padding: 0 15px;
-      display: flex;
-      flex-wrap: wrap;
+
     }
 
     .good-item {
+      display: flex;
+      flex-wrap: wrap;
       margin-bottom: 15px;
-      //   height: 250px;
-
+      height: 250px;
+      border-bottom: 1px solid #EBEEF5;
+      padding-bottom: 15px;
     }
 
     .good-right-cont {
       margin-left: 20px;
+      height: 100%;
+      line-height: 100%;
     }
 
     .good-img {
@@ -56,8 +60,11 @@
     }
 
     .good-title {
+      height: 100%;
       font-size: 32px;
-      font-weight: bold;
+      color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
     }
 
     .good-desc {

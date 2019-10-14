@@ -3,6 +3,8 @@ import "@tarojs/async-await";
 import Index from "./pages/index";
 import { Provider } from "@tarojs/mobx";
 import stores from "./stores/index";
+import moment from "moment";
+moment.locale("zh-cn");
 // 这里修改了taro-ui 的主题颜色
 import "./assets/css/custom-theme.scss";
 
@@ -22,6 +24,8 @@ class App extends Component {
       "pages/book/index",
       "pages/forum/index",
       "pages/me/index",
+      "pages/classifyBookList/index",
+      "pages/bookInfo/index"
     ],
     window: {
       backgroundTextStyle: "light",

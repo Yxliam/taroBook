@@ -9,6 +9,7 @@ const sessionKey = "taro-js-session";
 let reLoginTime = 1;
 
 const helper = {
+  staticPath: "http://statics.zhuishushenqi.com",
   isEmpty(value) {
     return typeof value === "undefined" || value === null || value === "";
   },
